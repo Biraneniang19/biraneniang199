@@ -1,5 +1,27 @@
 # Restack AI Python Examples
+==Kaiser–Bessel-derived (KBD) window==
+[[File:Kbd-window.svg|right|401px]]
+A related window function is the '''Kaiser–Bessel-derived (KBD)''' window, which is designed to be suitable for use with the [[modified discrete cosine transform]] (MDCT). The KBD window function is defined in terms of the Kaiser window of length ''N''+1, by the formula''':'''
+:<math>
+d_n =
 
+\begin{cases}
+
+\sqrt{\frac{\sum_{i=0}^{n} w[i]} {\sum_{i=0}^N w[i]}}
+ & \mbox{if } 0 \leq n < N \\
+
+\sqrt{\frac{\sum_{i=0}^{2N-1-n} w[i]} {\sum_{i=0}^N w[i]}}
+ & \mbox{if } N \leq n \leq 2N-1 \\
+
+0 & \mbox{otherwise}. \\
+
+\end{cases}
+</math>
+
+This defines a window of length 2''N'', where by construction ''d''<sub>''n''</sub> satisfies the Princen-Bradley condition for the MDCT (using the fact that {{math|''w''{{sub|''N''−''n''}} {{=}} ''w''{{sub|''n''}}}}): {{math|''d''{{sub|''n''}}<sup>2</sup> + (''d''{{sub|''n''+''N''}})<sup>2</sup> {{=}} 1}} (interpreting ''n'' and ''n''&nbsp;+&nbsp;''N'' [[modular arithmetic|modulo]] 2''N''). The KBD window is also symmetric in the proper manner for the MDCT: ''d''<sub>''n''</sub>&nbsp;=&nbsp;''d''<sub>2''N''−1−''n''</sub>.
+
+===Applications===
+The KBD window is used in the [[Advanced Audio Coding]] digital audio format.
 This repository contains various examples demonstrating how to use the Restack AI Python SDK. These examples are designed to help you get started with Restack AI and showcase different features and use cases.
 
 This repository is organized into two sections:
